@@ -18,13 +18,12 @@ public class Puzzle {
 
     public void setEndPoints(int centerX, int centerY) {
         Random random = new Random(System.currentTimeMillis());
-        for (PuzzlePiece piece: pieces) {
-            int x = centerX + getRandomSign(random)*192 + getRandomSign(random)*random.nextInt()%24;
-            int y = centerY + getRandomSign(random)*random.nextInt()%192 + getRandomSign(random)*random.nextInt()%24;
+        for (PuzzlePiece piece : pieces) {
+            int x = centerX + getRandomSign(random) * 192 + getRandomSign(random) * random.nextInt() % 24;
+            int y = centerY + getRandomSign(random) * random.nextInt() % 192 + getRandomSign(random) * random.nextInt() % 24;
 
-            if(getRandomSign(random) > 0) {
+            if (getRandomSign(random) > 0) {
                 int tmp = x;
-                //noinspection SuspiciousNameCombination,SuspiciousNameCombination
                 x = y;
                 y = tmp;
             }

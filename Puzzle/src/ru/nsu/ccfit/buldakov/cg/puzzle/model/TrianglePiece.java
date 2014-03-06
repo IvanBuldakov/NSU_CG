@@ -26,7 +26,7 @@ public class TrianglePiece implements PuzzlePiece {
     private int borderPixels;
     private int opaquePixels;
 
-    private int    prev;
+    private int prev;
 
     public TrianglePiece(double x, double y, double u, double v, double legLength, boolean upper) {
 
@@ -91,8 +91,12 @@ public class TrianglePiece implements PuzzlePiece {
             dt = t - 180;
         }
 
-        if (t > 180) sign = -1;
-        if (dt < 0 && t == 180) sign = -1;
+        if (t > 180) {
+            sign = -1;
+        }
+        if (dt < 0 && t == 180) {
+            sign = -1;
+        }
 
         if (t < 180 && 180 < prev) {
             center.setLocation(end);
@@ -115,6 +119,7 @@ public class TrianglePiece implements PuzzlePiece {
         }
         prev = t;
     }
+
     @Override
     public int getBorderPixels() {
         return borderPixels;
@@ -128,8 +133,8 @@ public class TrianglePiece implements PuzzlePiece {
         textureMapping(g);
         for (int i = 0; i < 3; ++i) {
             borderPixels += g.drawBresenhamLine(verticesWorld[i].x, verticesWorld[i].y,
-                                verticesWorld[(i + 1) % 3].x, verticesWorld[(i + 1) % 3].y,
-                                Color.black.getRGB());
+                                                verticesWorld[(i + 1) % 3].x, verticesWorld[(i + 1) % 3].y,
+                                                Color.black.getRGB());
         }
     }
 
@@ -138,8 +143,8 @@ public class TrianglePiece implements PuzzlePiece {
         Point p = new Point(x, y);
         return area(verticesWorld[0], verticesWorld[1], verticesWorld[2]) ==
                 area(verticesWorld[0], verticesWorld[1], p) +
-                area(verticesWorld[1], verticesWorld[2], p) +
-                area(verticesWorld[2], verticesWorld[0], p);
+                        area(verticesWorld[1], verticesWorld[2], p) +
+                        area(verticesWorld[2], verticesWorld[0], p);
     }
 
     @Override
@@ -199,8 +204,9 @@ public class TrianglePiece implements PuzzlePiece {
                 }
                 if (g.isAlphaBlendingEnabled()) {
                     color = g.getAlphaColor(j, i, color);
-                    if ((color >> 24  & 0xFF) != 0xFF)
+                    if ((color >> 24 & 0xFF) != 0xFF) {
                         --opaquePixels;
+                    }
                 }
                 g.setPixel(j, i, color);
                 ++opaquePixels;
@@ -227,8 +233,9 @@ public class TrianglePiece implements PuzzlePiece {
                 }
                 if (g.isAlphaBlendingEnabled()) {
                     color = g.getAlphaColor(j, i, color);
-                    if ((color >> 24 & 0xFF) != 0xFF)
+                    if ((color >> 24 & 0xFF) != 0xFF) {
                         --opaquePixels;
+                    }
                 }
                 g.setPixel(j, i, color);
                 ++opaquePixels;
