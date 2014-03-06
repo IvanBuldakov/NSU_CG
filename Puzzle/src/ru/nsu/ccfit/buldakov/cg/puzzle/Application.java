@@ -1,5 +1,7 @@
 package ru.nsu.ccfit.buldakov.cg.puzzle;
 
+import ru.nsu.ccfit.buldakov.cg.puzzle.view.MainFrame;
+
 import javax.swing.*;
 
 public class Application {
