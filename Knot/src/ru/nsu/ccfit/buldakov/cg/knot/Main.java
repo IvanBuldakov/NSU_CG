@@ -1,5 +1,7 @@
 package ru.nsu.ccfit.buldakov.cg.knot;
 
+import ru.nsu.ccfit.buldakov.cg.knot.view.MainFrame;
+
 import javax.swing.*;
 
 public class Main {
