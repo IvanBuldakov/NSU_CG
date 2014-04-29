@@ -37,7 +37,6 @@ public class Scene extends JPanel {
         super();
         this.settings = settings;
         init();
-        // scaling
         addMouseWheelListener(e -> {
             int delta = e.getWheelRotation();
             viewToPlane -= 1. * delta / 10;
@@ -45,7 +44,6 @@ public class Scene extends JPanel {
             recalculateEyePosition();
             repaint();
         });
-        // rotation
         addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
